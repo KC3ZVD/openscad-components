@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "openscad-components"
+dynamic = ["version"]
+description = 'Python-generated OpenSCAD DSL for common components. Intended to be used as a library to provide individual components for complex parametric designs.'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "GPLv3"
+keywords = [
+  "openscad"
+]
+authors = [
+  { name = "KC3ZVD", email = "github@kc3zvd.net" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "solidpython2==2.1.*"
+]
+
+[project.urls]
+Documentation = "https://github.com/kc3zvd/openscad-components#readme"
+Issues = "https://github.com/kc3zvd/openscad-components/issues"
+Source = "https://github.com/kc3zvd/openscad-components"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kc3zvd/openscad_components"]
+
+[tool.hatch.version]
+path = "src/kc3zvd/openscad_components/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/kc3zvd/openscad_components tests}"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "src/kc3zvd/openscad_components/__about__.py",
+]
+
+[tool.coverage.paths]
+openscad_components = ["src/kc3zvd/openscad_components", "*/openscad-components/src/kc3zvd/openscad_components"]
+tests = ["tests", "*/openscad-components/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

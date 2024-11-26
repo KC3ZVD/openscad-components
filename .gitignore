@@ -1,0 +1,5 @@
+**/*.scad
+*.code-workspace
+*.pyc.coverage
+.coverage*
+__pycache__
