@@ -5,6 +5,9 @@
 
 -----
 
+## WARNING
+Not even close to ready for public consumption. That is all!
+
 ## Table of Contents
 
 - [Installation](#installation)
