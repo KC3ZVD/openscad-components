@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = 'Python-generated OpenSCAD DSL for common components. Intended to be used as a library to provide individual components for complex parametric designs.'
 readme = "README.md"
 requires-python = ">=3.8"
-license = "GPLv3"
+license = {file = "LICENSE"}
 keywords = [
   "openscad"
 ]
